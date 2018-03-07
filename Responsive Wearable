@@ -1,0 +1,51 @@
+
+unsigned long startMillis;  
+unsigned long currentMillis;
+
+unsigned long previousMillis=0;
+const unsigned long period = 1000;  
+const int threshold = 550;
+int sensorValue = 0;
+int currentSensorVal;
+int prevSensorVal;
+int timerStart;
+const int  ldrpin = A1;
+const int buzz = 9;
+void setup() {
+ =
+Serial.begin(9600);
+pinMode(buzz,OUTPUT);
+pinMode(ldrpin,INPUT);
+}
+
+void loop() {
+  
+     sensorValue = analogRead(ldrpin); 
+Serial.println(sensorValue); 
+delay(100); 
+currentSensorVal = analogRead(ldrpin);
+ 
+  if(currentSensorVal < threshold)
+ { startMillis = millis();
+   currentMillis = millis();}
+   else {((unsigned long)(currentMillis - previousMillis));}
+
+if(currentSensorVal < threshold && currentMillis >= 6000)
+{ 
+//playsong
+digitalWrite(buzz,HIGH);
+delay(400);
+digitalWrite(buzz,LOW);
+delay(400);
+digitalWrite(buzz,HIGH);
+delay(400);
+digitalWrite(buzz,LOW);
+delay(400);
+digitalWrite(buzz,HIGH);
+delay(400);
+digitalWrite(buzz,LOW);
+delay(400);
+if(currentSensorVal > threshold){
+(unsigned long)(currentMillis - currentMillis);}
+}
+}
