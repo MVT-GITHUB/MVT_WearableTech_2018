@@ -1,0 +1,51 @@
+int LDRvalue = 1;
+int redPin = A2;
+int greenPin = 5;
+int bluePin = 9;
+int pinLDR = 1;
+void setup() {
+  // put your setup code here, to run once:
+{ 
+Serial.begin(9600);}
+{pinMode(redPin, OUTPUT);
+ pinMode(greenPin, OUTPUT);
+ pinMode(bluePin, OUTPUT);
+ pinMode(pinLDR, INPUT);
+}
+}
+
+void setColor(int red, int green, int blue)
+{
+  analogWrite(redPin, red);
+  analogWrite(greenPin, green);
+  analogWrite(bluePin, blue);  
+}
+
+void loop() 
+  // put your main code here, to run repeatedly:
+
+{if(LDRvalue >= 500) 
+{
+  setColor(0, 0, 250); 
+}
+
+else if((LDRvalue >= 200) & (LDRvalue < 500))
+{ 
+   setColor(0, 125, 125); 
+}
+
+else if((LDRvalue >= 50) & (LDRvalue < 200))
+{ 
+   setColor(0, 255, 100 ); 
+}
+
+else if((LDRvalue >= 0) & (LDRvalue < 50))
+{ 
+   setColor(0, 255, 0 ); 
+}
+{
+  LDRvalue = analogRead(pinLDR);
+  Serial.println(LDRvalue);
+  delay(1);
+}}
+
